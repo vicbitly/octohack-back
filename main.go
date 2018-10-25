@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+
 	"database/sql"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -101,4 +102,3 @@ func CreateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func formatError(msg string, err error) string {
 	return fmt.Sprintf("%s: %s", msg, err.Error())
 }
-
