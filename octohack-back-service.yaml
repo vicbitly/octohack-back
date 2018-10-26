@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: octohack-back
+spec:
+  selector:
+    matchLabels:
+      run: octohack-back
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        run: octohack-back
+    spec:
+      containers:
+      - name: octohack-back
+        image: us.gcr.io/octohack-220220/octohack-back@sha256:97dac66c0a367a21eca4192c9ec23016b38c661bb788735d44bf5b42e2cc8770
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: octohack-back
+  labels:
+    run: octohack-back
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    run: octohack-back
+
