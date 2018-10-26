@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	DB_IP = "35.196.170.187:3306"
+	DB_IP = "35.239.226.14:3306"
 	DB_NAME = "octohack"
 	DB_USER = "bitly"
 	DB_PASSWORD = "yPlkKtGqviLmz1yy"
